@@ -29,7 +29,7 @@ def main():
         return (error_msg("Assertion error: the arguments are bad", 1))
     in_list = sys.argv[1].split()
     for word in in_list:
-        if (lambda a, b: len(a) < b)(word, n):
+        if (lambda a, b: len(a) > b)(word, n):
             out_list.append(word)
     print(out_list)
 

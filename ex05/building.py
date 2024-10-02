@@ -8,7 +8,7 @@ def error_msg(error_message, error_number):
 
 
 def count_in(string, char_list) -> int:
-    '''counts number o times characters in char_list\
+    '''counts number of times characters in char_list\
     appear in the string parameter'''
     sum = 0
     for letter in string:
@@ -21,9 +21,13 @@ def main():
     '''this is main'''
     argc = len(sys.argv)
     if argc > 2:
-        return (error_msg("Assertion error, wrong number of arguments", 1))
+        return (error_msg("Assertion error: wrong number of arguments", 1))
     elif argc == 1:
-        string = input("What is the text to count?\n")
+        try:
+            print("What is the text to count?")
+            string = sys.stdin.readline()
+        except KeyboardInterrupt:
+            return (error_msg("Assertion error: CTR-C detected", 1))
     else:
         string = sys.argv[1]
 
